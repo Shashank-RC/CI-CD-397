@@ -18,25 +18,50 @@
 
 import pytest
 import numpy as np
+from basic_sort_UNIQUE_SUFFIX.int_sort import (
+    bubble,
+    quick,
+    insertion,
+)  # Import sorting functions
 
-def is_sorted(self, int_list):
+
+def is_sorted(int_list):
     """
-    Testing oracle.
+    Check if a list is sorted in ascending order.
+
+    Parameters:
+        int_list (list of int): List of integers to check.
+
+    Returns:
+        bool: True if sorted in ascending order, False otherwise.
     """
-    return True
+    return all(int_list[i] <= int_list[i + 1] for i in range(len(int_list) - 1))
+
 
 @pytest.fixture
 def int_lists():
-    # fixture which creates testing data for all tests
-    return [[3,2,1],
-	        [1,1,1],
-			np.random.randint(low=-10, high=200, size=5)] 
-    
+    """
+    Fixture that creates test data for all sorting tests.
+
+    Returns:
+        list: A list of lists of integers to be used as test cases.
+    """
+    return [[3, 2, 1], [1, 1, 1], np.random.randint(low=-10, high=200, size=5).tolist()]
+
+
 def test_bubble(int_lists):
-    assert True
+    for int_list in int_lists:
+        sorted_list = bubble(int_list.copy())  # Ensure original list isn't modified
+        assert is_sorted(sorted_list), f"Bubble sort failed on {int_list}"
+
 
 def test_quick(int_lists):
-    assert True
+    for int_list in int_lists:
+        sorted_list = quick(int_list.copy())  # Ensure original list isn't modified
+        assert is_sorted(sorted_list), f"Quick sort failed on {int_list}"
+
 
 def test_insertion(int_lists):
-    assert True
+    for int_list in int_lists:
+        sorted_list = insertion(int_list.copy())  # Ensure original list isn't modified
+        assert is_sorted(sorted_list), f"Insertion sort failed on {int_list}"

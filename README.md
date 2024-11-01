@@ -1,34 +1,77 @@
-# DevOps Exercise
+#CI/CD assignment
 
-This is a skeleton repository for your exercise. 
-The goal of this exercise is to implement a Python package for sorting integer 
-lists using the DevOps software development approach.
+![Build Status](https://github.com/Shashank-RC/CI-CD-397/blob/main/.github/workflows/main.yml/badge.svg)
 
-> **Warning**: If working on windows, some directories and files in this archive
-will not be visible because they start with a '.'. In the file browser, change 
-the View to display "Hidden items".
+Project Overview
+This project is a Python package for sorting integer lists, developed using DevOps best practices. It includes implementations of Bubble Sort, Quick Sort, and Insertion Sort algorithms and leverages Continuous Integration (CI) to ensure code quality and correctness across different environments.
 
-You will need to:
-1. Add .pre-commit-config.yml which:  
-    1. Limits maximal file size.
-    1. Runs the black and flake8 linters.
-    1. Detect presence of aws credentials private keys.    
-1. Implement the algorithms for bubble, quick and insertion sort, see sort_lib directory,
-code should be documented using standard Python practices (there are several [docstring 
-styles](https://stackoverflow.com/questions/3898572/what-is-the-standard-python-docstring-format)
-select one and be consistent).
-1. Implement testing using the [pytest](https://docs.pytest.org/en/6.2.x/) framework, see test directory.
-1. Implement linting, style checking using both [flake8](https://flake8.pycqa.org/en/latest/) and 
-[black](https://black.readthedocs.io/en/stable/). 
-1. Modify the GitHub actions workflow so that it tests and builds the package for all 
-three operating systems (OSX/Linux/Win) and for Python versions 3.9 and 3.10. Read more about [Distributing Python packages](https://docs.python.org/3/distributing/index.html).
-1. Modify this file to describe this repository and the DevOps workflow you implemented (add badges to this file showing testing status).
-1. **Optional**: Add a job to the workflow which uploads the wheel to [TestPyPI](https://test.pypi.org/). As every package on TestPyPI is required to have a unique name you need to update the UNIQUE_SUFFIX both in the directory name and in the .toml file. Possibly use your team number.
-    >**Warning**: Do not upload to the authoritative Python Package Index (PyPI).  
+The repository has a fully automated CI/CD pipeline that performs:
 
+Linting with black and flake8
+Automated testing using pytest
+Cross-platform support for Linux, macOS, and Windows, and compatibility with Python versions 3.9 and 3.10
+Features
+Sorting Algorithms: Efficient and well-documented implementations of common sorting algorithms:
+Bubble Sort
+Quick Sort
+Insertion Sort
+Automated Quality Checks:
+Code linting with black and flake8
+Unit tests to verify sorting functionality
+Cross-platform Compatibility: Tested on Ubuntu, macOS, and Windows.
+CI/CD Workflow
+The CI/CD pipeline is implemented with GitHub Actions and consists of three main jobs:
 
-Possible work division, three sub-teams:
-1. Adding pre-commit and implementing algorithm code and documentation (tasks 1,2,6).
-1. Implementing testing code, mastering pytest, black, flake8 (tasks 3,4,6).
-1. Understanding pytest, black, flake8 and mastering GitHub workflows (tasks 5,6).
+Linting: Checks code style using black and flake8.
+Testing: Runs unit tests with pytest across multiple OS (Linux, macOS, Windows) and Python versions (3.9, 3.10).
+Packaging: Builds the package and uploads the build artifacts to GitHub.
+Workflow Configuration
+The workflow file is located in .github/workflows/main.yml. Here’s a breakdown of each job:
 
+Linting: Ensures code follows consistent style guidelines.
+Testing: Tests each sorting function on multiple OS and Python versions to guarantee compatibility and correctness.
+Packaging: Builds the package on successful test completion and verifies the dist directory for output.
+Usage:
+
+Clone the repository:
+bash
+
+git clone https://github.com/Shashank-RC/CI-CD-397.git
+cd REPOSITORY
+Install dependencies:
+bash
+Copy code
+pip install -r requirements-dev.txt
+Run the sorting functions:
+Example:
+python
+
+from sort_lib import bubble, quick, insertion
+sorted_list = bubble([3, 1, 4, 1, 5])
+Development Workflow
+Pre-Commit Hooks
+This project uses pre-commit hooks for linting and security checks:
+
+File size checks to prevent large files from being added.
+Linting with black and flake8.
+Security checks to detect private keys or credentials.
+Install pre-commit hooks:
+
+bash
+
+pre-commit install
+Running Tests Locally
+Run pytest to execute tests:
+
+bash
+
+pytest
+
+Individual Project for me to get more understanding of CI/CD pipeline beyond assignment
+Reflection on CI/CD
+Using a CI/CD workflow enhanced the reliability of the codebase by:
+
+Ensuring code quality through automated linting.
+Running cross-platform tests to verify compatibility.
+Automating builds to produce and verify package artifacts.
+This DevOps approach, especially with tools like GitHub Actions and pre-commit hooks, streamlined collaboration and provided immediate feedback, ensuring high-quality software development.

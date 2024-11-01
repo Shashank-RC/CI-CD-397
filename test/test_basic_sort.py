@@ -18,7 +18,7 @@
 
 import pytest
 import numpy as np
-from basic_sort_UNIQUE_SUFFIX.int_sort import (
+from basic_sort_xyz.int_sort import (
     bubble,
     quick,
     insertion,

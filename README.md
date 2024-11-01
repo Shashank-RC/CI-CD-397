@@ -1,6 +1,6 @@
 #CI/CD assignment
 
-![Build Status](https://github.com/Shashank-RC/CI-CD-397/blob/main/.github/workflows/main.yml/badge.svg)
+![Build Status](https://github.com/Shashank-RC/CI-CD-397/blob/main/.github/workflows/main.yml/badge.svg?event=push)
 
 Project Overview
 This project is a Python package for sorting integer lists, developed using DevOps best practices. It includes implementations of Bubble Sort, Quick Sort, and Insertion Sort algorithms and leverages Continuous Integration (CI) to ensure code quality and correctness across different environments.
